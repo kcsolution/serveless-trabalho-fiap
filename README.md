@@ -90,8 +90,6 @@ sam deploy \
     --capabilities CAPABILITY_IAM
 ```
 
-> **See [Serverless Application Model (SAM) HOWTO Guide](https://github.com/awslabs/serverless-application-model/blob/master/HOWTO.md) for more details in how to get started.**
-
 Após a conclusão da implantação, você pode executar o seguinte comando para recuperar o URL do endpoint do gateway de API:
 
 ```bash
@@ -102,7 +100,7 @@ aws cloudformation describe-stacks \
 
 ## Comandos AWS CLI
 
-AWS CLI commands to package, deploy and describe outputs defined within the cloudformation stack:
+Comandos AWS CLI para empacotar, implantar e descrever saídas definidas na stak cloudformation:
 
 ```bash
 sam package \
