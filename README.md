@@ -94,7 +94,7 @@ Após a conclusão da implantação, você pode executar o seguinte comando para
 
 ```bash
 aws cloudformation describe-stacks \
-    --stack-name scountry-fiap \
+    --stack-name country-fiap \
     --query 'Stacks[].Outputs'
 ```
 
