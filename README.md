@@ -1,10 +1,31 @@
 ## Trabalho de Serveless
-    Grupo ROFK
+   * Grupo ROFK
     Raylton - 340061
     Otton - 337034
     Fabio - 339921
-    Kleber - 339696
-    
+    Kleber - 339696 
+
+## Estrutura para inserção de dados
+   * http://localhost:3000/trips
+    {
+        "pais": "Brasil",
+        "cep": "05577200",
+        "cidade": "São Paulo",
+        "nome": "Fabio sousa",
+        "logradouro": "Rodovia Raposo Tavares, 7484",
+        "consumed": false
+    }
+
+## Links de buscas local 
+   * http://localhost:3000/trips/Brasil/findByCep?starts=05577000&ends=05900000
+   * http://localhost:3000/trips/Brasil/findByCidade?cidade=Osasco
+   * http://localhost:3000/trips/Brasil/findByIsConsumed?isconsumed=false
+
+## Links do AWS API Gateway
+   * https://yacfvzbce3.execute-api.us-east-1.amazonaws.com/Prod/trips/Brasil/findByCep?starts=05577000&ends=05900000
+   * https://yacfvzbce3.execute-api.us-east-1.amazonaws.com/Prod/trips/Brasil/findByCidade?cidade=Osasco
+   * https://yacfvzbce3.execute-api.us-east-1.amazonaws.com/Prod/trips/Brasil/findByIsConsumed?isconsumed=false
+
 ## Aplicativo AWS SAM para gerenciamento de Serveless Country
 
 Este é um aplicativo de amostra para demonstrar como construir um aplicativo no AWS Serverless Envinronment usando o AWS SAM, Amazon API Gateway, AWS Lambda e Amazon DynamoDB.
@@ -45,8 +66,6 @@ Deletando uma tabela no DynamoDB: `aws dynamodb delete-table --table-name countr
  - On Windows: `sam local start-api --env-vars src/test/resources/test_environment_windows.json --skip-pull-image --warm-containers eager`
  - On Linux: `sam local start-api --env-vars src/test/resources/test_environment_linux.json --skip-pull-image --warm-containers eager`
  
-
-
  OBS:  
  
  - (1) Se existir o contêiner localmente (Java8), pode usar --skip-pull-image para remover o download
@@ -91,6 +110,7 @@ sam package \
 
 Em seguida, o comando a seguir criará um Cloudformation Stack e deploy nos recursos SAM.
 ```bash
+sam deploy --template-file /Users/klebervilarim/MBA-Fiap/serveless/fiap-country/packaged.yaml --stack-name country-fiap --capabilities CAPABILITY_IAM
 sam deploy \
     --template-file packaged.yaml \
     --stack-name country-fiap \
