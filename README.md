@@ -1,3 +1,10 @@
+## Trabalho de Serveless
+    Grupo ROFK
+    Raylton - 340061
+    Otton - 337034
+    Fabio - 339921
+    Kleber - 339696
+    
 ## Aplicativo AWS SAM para gerenciamento de Serveless Country
 
 Este é um aplicativo de amostra para demonstrar como construir um aplicativo no AWS Serverless Envinronment usando o AWS SAM, Amazon API Gateway, AWS Lambda e Amazon DynamoDB.
