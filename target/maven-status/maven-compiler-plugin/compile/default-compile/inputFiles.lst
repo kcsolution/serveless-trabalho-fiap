@@ -1,0 +1,9 @@
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/handler/GetCountryRecordsByCidade.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/model/Country.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/handler/CreateCountryRecord.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/dao/CountryRepository.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/handler/GetCountryRecordsByCep.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/handler/GetCountryRecordsByIsConsumed.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/dao/DynamoDBManager.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/model/HandlerRequest.java
+/Users/klebervilarim/MBA-Fiap/serveless/fiap-country/src/main/java/br/com/iwe/model/HandlerResponse.java

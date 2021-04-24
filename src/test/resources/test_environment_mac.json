@@ -1,0 +1,18 @@
+{
+	"CreateCountryRecordFunction": {
+		"ENDPOINT_OVERRIDE": "http://docker.for.mac.localhost:8000",
+		"TABLE_NAME": "country"
+	},
+	"GetCountryRecordsByCepFunction": {
+		"ENDPOINT_OVERRIDE": "http://docker.for.mac.localhost:8000",
+		"TABLE_NAME": "country"
+	},
+	"GetCountryRecordsByCidadeFunction": {
+		"ENDPOINT_OVERRIDE": "http://docker.for.mac.localhost:8000",
+		"TABLE_NAME": "country"
+	},
+	"GetCountryRecordsByIsConsumedFunction": {
+		"ENDPOINT_OVERRIDE": "http://docker.for.mac.localhost:8000",
+		"TABLE_NAME": "country"
+	}
+}

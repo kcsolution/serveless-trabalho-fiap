@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "ef9ef35f-a302-4fa0-b0f0-b15a387362ba",
+		"name": "Country Fiap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findByCep",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/trips/Brasil/findByCep?starts=05577-000&ends=06400-000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"trips",
+						"Brasil",
+						"findByCep"
+					],
+					"query": [
+						{
+							"key": "starts",
+							"value": "05577000"
+						},
+						{
+							"key": "ends",
+							"value": "06440000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCountryRecord",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pais\": null,\n    \"cep\": null,\n    \"cidade\": null,\n    \"nome\": null,\n    \"logradouro\": null,\n    \"consumed\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/trips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByCidade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/trips/Brasil/findByCidade?cidade=Osasco",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"trips",
+						"Brasil",
+						"findByCidade"
+					],
+					"query": [
+						{
+							"key": "cidade",
+							"value": "Osasco"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByIsConsumed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/trips/Brasil/findByIsConsumed?isconsumed=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"trips",
+						"Brasil",
+						"findByIsConsumed"
+					],
+					"query": [
+						{
+							"key": "isconsumed",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

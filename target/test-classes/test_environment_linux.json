@@ -1,0 +1,18 @@
+{
+	"CreateCountryRecordFunction": {
+		"ENDPOINT_OVERRIDE": "http://127.0.0.1:8000",
+		"TABLE_NAME": "country"
+	},
+	"GetCountryRecordsByPeriodFunction": {
+		"ENDPOINT_OVERRIDE": "http://127.0.0.1:8000",
+		"TABLE_NAME": "country"
+	},
+	"GetStudyRecordsByCidadeFunction": {
+		"ENDPOINT_OVERRIDE": "http://127.0.0.1:8000",
+		"TABLE_NAME": "country"
+	},
+	"GetStudyRecordsByIsConsumedFunction": {
+		"ENDPOINT_OVERRIDE": "http://127.0.0.1:8000",
+		"TABLE_NAME": "country"
+	}
+}

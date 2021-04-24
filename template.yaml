@@ -1,0 +1,144 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    Country-fiap
+
+    Rest API para gerenciamento de Paises - FIAP Serveless
+
+Globals:
+    Function:
+        Timeout: 20
+        MemorySize: 512
+        Environment:
+          Variables:
+            TABLE_NAME: !Ref CountryTable
+            ENDPOINT_OVERRIDE: ""
+
+Resources:
+
+  CreateCountryRecordFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+     CodeUri: target/country-fiap-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+     Handler: br.com.iwe.handler.CreateCountryRecord::handleRequest
+     Runtime: java8
+     Policies:
+       - DynamoDBCrudPolicy:
+           TableName: !Ref CountryTable     
+     Events:
+       CreateCountryRecord:
+         Type: Api
+         Properties:
+           Path: /trips
+           Method: post
+           
+  GetCountryRecordsByCepFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+     CodeUri: target/country-fiap-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+     Handler: br.com.iwe.handler.GetCountryRecordsByCep::handleRequest
+     Runtime: java8
+     Policies:
+       - DynamoDBCrudPolicy:
+           TableName: !Ref CountryTable     
+     Events:
+       GetCountryRecordsByCep:
+         Type: Api
+         Properties:
+           Path: /trips/{pais}/findByCep
+           Method: get
+           RequestParameters:
+              - method.request.querystring.starts
+              - method.request.querystring.ends
+              
+  GetCountryRecordsByCidadeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+     CodeUri: target/country-fiap-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+     Handler: br.com.iwe.handler.GetCountryRecordsByCidade::handleRequest
+     Runtime: java8
+     Policies:
+       - DynamoDBCrudPolicy:
+           TableName: !Ref CountryTable     
+     Events:
+       GetCountryRecordsByCidade:
+         Type: Api
+         Properties:
+           Path: /trips/{pais}/findByCidade
+           Method: get
+           RequestParameters:
+              - method.request.querystring.cidade
+
+  GetCountryRecordsByIsConsumedFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+     CodeUri: target/country-fiap-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+     Handler: br.com.iwe.handler.GetCountryRecordsByIsConsumed::handleRequest
+     Runtime: java8
+     Policies:
+       - DynamoDBCrudPolicy:
+           TableName: !Ref CountryTable
+     Events:
+       GetCountryRecordsByIsConsumed:
+         Type: Api
+         Properties:
+           Path: /trips/{pais}/findByIsConsumed
+           Method: get
+           RequestParameters:
+              - method.request.querystring.isconsumed
+              
+  CountryTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: country
+      AttributeDefinitions:
+        - AttributeName: pais
+          AttributeType: S
+        - AttributeName: cep
+          AttributeType: S
+        - AttributeName: cidade
+          AttributeType: S
+        - AttributeName: consumed
+          AttributeType: S            
+      KeySchema:
+        - AttributeName: pais
+          KeyType: HASH
+        - AttributeName: cep
+          KeyType: RANGE
+      LocalSecondaryIndexes: 
+        - IndexName: cidadeIndex
+          KeySchema: 
+            - AttributeName: pais
+              KeyType: HASH
+            - AttributeName: cidade
+              KeyType: RANGE
+          Projection:
+             ProjectionType: ALL 
+        - IndexName: consumedIndex
+          KeySchema: 
+            - AttributeName: pais
+              KeyType: HASH
+            - AttributeName: consumed
+              KeyType: RANGE
+          Projection:
+             ProjectionType: ALL      
+      BillingMode: PAY_PER_REQUEST              
+
+Outputs:
+
+    CreateCountryRecordFunction:
+      Description: "CreateCountryRecord Lambda Function ARN"
+      Value: !GetAtt CreateCountryRecordFunction.Arn
+      
+    GetCountryRecordsByCepFunction:
+      Description: "GetCountryRecordsByPeriod Lambda Function ARN"
+      Value: !GetAtt GetCountryRecordsByCepFunction.Arn
+      
+    GetCountryRecordsByCidadeFunction:
+      Description: "GetCountryRecordsByCidade Lambda Function ARN"
+      Value: !GetAtt GetCountryRecordsByCidadeFunction.Arn
+      
+    GetCountryRecordsByIsConsumedFunction:
+      Description: "GetCountryRecordsByIsConsumed Lambda Function ARN"
+      Value: !GetAtt GetCountryRecordsByIsConsumedFunction.Arn      
+     

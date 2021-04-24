@@ -1,0 +1,10 @@
+br/com/iwe/dao/DynamoDBManager.class
+br/com/iwe/model/HandlerResponse$Builder.class
+br/com/iwe/model/HandlerRequest.class
+br/com/iwe/handler/GetCountryRecordsByCep.class
+br/com/iwe/model/HandlerResponse.class
+br/com/iwe/handler/CreateCountryRecord.class
+br/com/iwe/handler/GetCountryRecordsByCidade.class
+br/com/iwe/dao/CountryRepository.class
+br/com/iwe/model/Country.class
+br/com/iwe/handler/GetCountryRecordsByIsConsumed.class
