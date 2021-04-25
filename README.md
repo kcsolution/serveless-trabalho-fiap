@@ -6,7 +6,7 @@
 
 ## Estrutura para inserção de dados
    * http://localhost:3000/trips
-    {
+   * {
         "pais": "Brasil",
         "cep": "05577200",
         "cidade": "São Paulo",
