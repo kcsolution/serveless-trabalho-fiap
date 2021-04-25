@@ -16,7 +16,7 @@
     }
 
 ## Links de buscas local 
-   * http://localhost:3000/trips/Brasil/findByCep?starts=05577000&ends=05900000
+   * http://localhost:3000/trips/Brasil/findByCep?starts=01015000&ends=05900000
    * http://localhost:3000/trips/Brasil/findByCidade?cidade=Osasco
    * http://localhost:3000/trips/Brasil/findByIsConsumed?isconsumed=false
 
